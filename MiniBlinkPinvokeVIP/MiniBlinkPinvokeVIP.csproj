@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8A051F8-AE84-44D7-9713-9916EE2C2FB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MiniBlinkPinvokeVIP</RootNamespace>
+    <AssemblyName>MiniBlinkPinvokeVIP</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlinkBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BrowserCore\BITMAP.cs" />
+    <Compile Include="BrowserCore\BLENDFUNCTION.cs" />
+    <Compile Include="BrowserCore\BlinkDelegate.cs" />
+    <Compile Include="BrowserCore\BlinkEnum.cs" />
+    <Compile Include="BrowserCore\BlinkInit.cs" />
+    <Compile Include="BrowserCore\BlinkPInvoke.cs" />
+    <Compile Include="BrowserCore\BlinkStruct.cs" />
+    <Compile Include="BrowserCore\COMPOSITIONFORM.cs" />
+    <Compile Include="BrowserCore\CustEventArgs.cs" />
+    <Compile Include="BrowserCore\JSFunctin.cs" />
+    <Compile Include="BrowserCore\PAINTSTRUCT.cs" />
+    <Compile Include="BrowserCore\POINT.cs" />
+    <Compile Include="BrowserCore\RECT.cs" />
+    <Compile Include="BrowserCore\SIZE.cs" />
+    <Compile Include="BrowserCore\TernaryRasterOperations.cs" />
+    <Compile Include="BrowserCore\VKeyCodes.cs" />
+    <Compile Include="BrowserCore\WinConst.cs" />
+    <Compile Include="Core\BlinkCommon.cs" />
+    <Compile Include="Core\Common.cs" />
+    <Compile Include="Core\WinAPI.cs" />
+    <Compile Include="Forms\frmAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAlert.Designer.cs">
+      <DependentUpon>frmAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConfirm.Designer.cs">
+      <DependentUpon>frmConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPromptBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPromptBox.Designer.cs">
+      <DependentUpon>frmPromptBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Linq\Internal\Definitions\Exceptions.cs" />
+    <Compile Include="Linq\Internal\Definitions\Parameters.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\Buffer\Buffer.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\EmptyEnumerable\EmptyEnumerable.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\Grouping\Grouping.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\NullableKeyDictionary\NullableKeyDictionary.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\OrderedEnumerable\CompositeKey.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\OrderedEnumerable\DescendingComparer.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\OrderedEnumerable\OrderedEnumerable.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\OrderedEnumerable\QuickSorter\KeyIndex.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\OrderedEnumerable\QuickSorter\QuickSorter.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\OrderedEnumerable\QuickSorter\StableQuickSorter.cs" />
+    <Compile Include="Linq\Internal\Infrastructure\UniqueCollection\UniqueCollection.cs" />
+    <Compile Include="Linq\System\CompilerServices\ExtensionAttribute.cs" />
+    <Compile Include="Linq\System\Delegates\Delegates.cs" />
+    <Compile Include="Linq\System\Linq\DataStructures\Interface\IGrouping.cs" />
+    <Compile Include="Linq\System\Linq\DataStructures\Interface\ILookup.cs" />
+    <Compile Include="Linq\System\Linq\DataStructures\Interface\IOrderedEnumerable.cs" />
+    <Compile Include="Linq\System\Linq\DataStructures\Lookup.cs" />
+    <Compile Include="Linq\System\Linq\DeferredExecution.cs" />
+    <Compile Include="Linq\System\Linq\ImmediateExecution.cs" />
+    <Compile Include="Model\ActionModel.cs" />
+    <Compile Include="Model\ConfirmThreadModel.cs" />
+    <Compile Include="Model\DownloadModel.cs" />
+    <Compile Include="Model\LoadResThreadModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\Newtonsoft.Json.dll" />
+    <Content Include="Libs\Newtonsoft.Json.xml" />
+    <EmbeddedResource Include="Res\index.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

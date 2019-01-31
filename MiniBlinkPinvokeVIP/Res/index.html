@@ -1,0 +1,210 @@
+<html>
+<head>
+    <meta charset="GBK">
+    <title>
+        测试页面测试页面测试页面测试测试
+    </title>
+    <script>
+        //window.Console_WriteLine("测试调用后台方法" + Date.parse(new Date()))
+
+        //setTimeout(function () { alert("hhaxx是"); }, 1000);
+        //var testJson = '{ "name": "he" }';
+        console.log(navigator.userAgent);
+        function testInt() {
+            return 1213;
+        }
+        function testBool() {
+            return true;
+        }
+
+        function testString() {
+            return "123";
+        }
+        Console_WriteLine2(1231511, "第二个参数");
+
+        function test() {
+            var res = TZBlink_Version();
+            res.then((v) => {
+                var msg = document.getElementById("msg").innerHTML;
+                msg += v;
+                document.getElementById("msg").innerHTML = msg;
+            });
+
+        }
+        function loginSW() {
+            document.getElementById("msg").innerHTML = "登录中，请稍后。";
+            async function AsyncLogin() {
+                TZBlink_LoginSWByPwd("99999999").then((res) => {
+                    document.getElementById("msg").innerHTML = res;
+                    //if (res) {
+                    //    if (res.length != 0) {
+                    var resJson = JSON.parse(res);
+                    if (resJson.Code == 1) {
+                        if (resJson.Data.LoginCode == 1) {
+                            window.top.location.href = resJson.Data.LoginURL;
+                        } else {
+                            document.getElementById("msg").innerHTML = resJson.Data.LoginMsg;
+                        }
+                    } else {
+                        document.getElementById("msg").innerHTML = resJson.Msg;
+                    }
+                });
+            }
+            const result = AsyncLogin().then((s) => { });
+        }
+        function saveData() {
+            document.getElementById("msg").innerHTML = "暂存中，请稍后。";
+            var data = document.getElementById("saveDataStr").value;
+            var id = "123";
+            if (!data || data.length == 0) {
+                document.getElementById("msg").innerHTML = "没有输入数据。";
+            } else {
+                async function AsyncSave() {
+                    TZBlink_SaveDec(data, id).then((s) => {
+                        //console.log(2);
+                        //var json = JSON.parse(unescape(s));
+                        document.getElementById("msg").innerHTML = "暂存返回:" + unescape(s);
+                    });
+                };
+                AsyncSave().then((x) => {
+                    console.log(1);
+                });
+            }
+        }
+        function GenerateEdoc() {
+            document.getElementById("msg").innerHTML = "生成中，请稍后。";
+            var data = document.getElementById("saveDataStr").value;
+            if (!data || data.length == 0) {
+                document.getElementById("msg").innerHTML = "没有输入统一编号。";
+            } else {
+                async function AsyncGenerate() {
+                    TZBlink_GenerateEDoc(data).then((s) => {
+                        //console.log(2);
+                        //var json = JSON.parse(unescape(s));
+                        document.getElementById("msg").innerHTML = "生成返回:" + unescape(s);
+                    });
+                };
+                AsyncGenerate().then((x) => {
+                    console.log("开始调用 生成电子代理报关委托协议 方法");
+                });
+            }
+        }
+        function SaveIDoc() {
+            document.getElementById("msg").innerHTML = "上传随附单据，请稍后。";
+            var data = document.getElementById("saveDataStr").value;
+            //if (!data || data.length == 0) {
+            //    document.getElementById("msg").innerHTML = "没有输入统一编号。";
+            //} else {
+            async function AsyncSaveIDoc() {
+                TZBlink_SaveIDoc(data).then((s) => {
+                    //console.log(2);
+                    document.getElementById("msg").innerHTML = "上传随附单据返回:" + unescape(s);
+                });
+            };
+            AsyncSaveIDoc().then((x) => {
+                console.log("开始调用 上传随附单据 方法");
+            });
+            //}
+        }
+        function QueryDoc() {
+            document.getElementById("msg").innerHTML = "上传随附单据，请稍后。";
+            var data = document.getElementById("saveDataStr").value;
+            //if (!data || data.length == 0) {
+            //    document.getElementById("msg").innerHTML = "没有输入统一编号。";
+            //} else {
+            async function AsyncSaveIDoc() {
+                TZBlink_QueryDecStatus(data).then((s) => {
+                    //console.log(2);
+                    document.getElementById("msg").innerHTML = "查回执返回:" + unescape(s);
+                });
+            };
+            AsyncSaveIDoc().then((x) => {
+                console.log("开始调用 查回执 方法");
+            });
+            //}
+        }
+        function DelIDoc() {
+            document.getElementById("msg").innerHTML = "删除随附单据中，请稍后。";
+            var data = document.getElementById("saveDataStr").value;
+            async function AsyncSaveIDoc() {
+                TZBlink_DelIDoc(data).then((s) => {
+                    document.getElementById("msg").innerHTML = "删除随附单据:" + unescape(s);
+                });
+            };
+            AsyncSaveIDoc().then((x) => {
+                console.log("开始调用 删除随附单据 方法");
+            });
+        }
+
+        function opensw() {
+            document.getElementById("msg").innerHTML = "打开中，请稍后。";
+            var data = document.getElementById("saveDataStr").value;
+            if (!data || data.length == 0) {
+                document.getElementById("msg").innerHTML = "没有输入统一编号。";
+            } else {
+                async function AsyncSaveIDoc() {
+                    TZBlink_OpenSWToDeclare(data).then((s) => {
+                        //console.log(2);
+                        document.getElementById("msg").innerHTML = "打开返回:" + unescape(s);
+                    });
+                };
+                AsyncSaveIDoc().then((x) => {
+                    console.log("开始调用 TZBlink_OpenSWToDeclare 方法");
+                });
+            }
+        }
+
+        function disp_prompt() {
+            var name = prompt("请输入您的名字", "Bill Gates")
+            if (name != null && name != "") {
+                //alert(2);
+                document.write("你好，" + name + "！今天过得好吗？")
+            }
+            //alert(1);
+        }
+        function disp_confirm() {
+            var res = confirm("您确定吗？");
+            console.log("confirm:" + res);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <!--<a href="javascript:loginSW();" target="_self">登录 SW</a>
+    <br />-->
+        <a href="javascript:saveData();">SW 暂存</a>
+        <br />
+        <a href="javascript:GenerateEdoc();">生成电子代理报关委托协议</a>
+        <br />
+        <a href="javascript:SaveIDoc();">上传随附单据</a>
+        <br />
+        <a href="https://files-cdn.cnblogs.com/files/xt_hjl/20160922001.zip?r=123">下载测试</a>
+        <br />
+        <a href="javascript:opensw();">打开 SW 并定位</a>
+        <br />
+        <a onclick="alert('test');">alert</a>
+        <br />
+        <a onclick="disp_prompt()">PromptBox</a>
+        <br />
+        <a onclick="disp_confirm()">confirm</a>
+        <br />
+        <a href="javascript:DelIDoc();">删随附单据</a>
+        <br />
+        <a href="javascript:print();">打印</a>
+        <br />
+        <a href="http://usertest.sztaizhou.com/">测试环境</a>
+        <br />
+        <a href="http://user.sztaizhou.com/">正式环境</a>
+        <br />
+        <a href="https://www.baidu.com/">百度</a>
+        <br />
+        <a href="javascript:QueryDoc();">查回执</a>
+
+    </div>
+    <div>
+        <textarea id="saveDataStr">I20180000123781993</textarea>
+    </div>
+    <div id="msg"></div>
+</body>
+
+</html>
